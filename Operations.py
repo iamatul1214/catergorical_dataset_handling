@@ -14,13 +14,15 @@ class categorical_handler:
         print("categorical features={}".format(categorical_features))
         return categorical_features
 
-    def remove_Categorical(self,cat_features):
+    def remove_Categorical(self):
+        cat_features = self.return_categorical_features()
         df=self.dataframe
         updated_df=df.drop(columns=cat_features)
         return updated_df
 
-    def ordinal_Encoding(self,cat_features):
-        cat_features_ordinal={}
+    def ordinal_Encoding(self):
+        cat_features = self.return_categorical_features()
+        cat_features_ordinal=[]
         df=self.dataframe
 
         for i in range(len(cat_features)):
@@ -35,7 +37,8 @@ class categorical_handler:
         updated_df=pd.DataFrame(df)
         return updated_df
 
-    def one_Hot_Encoding(self,cat_features):
+    def one_Hot_Encoding(self,):
+        cat_features=self.return_categorical_features()
         df=self.dataframe
         one_hot_encode=pd.get_dummies(df[cat_features], drop_first=True)
         df=df.drop(columns=cat_features)
