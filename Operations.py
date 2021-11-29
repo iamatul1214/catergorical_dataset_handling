@@ -8,6 +8,10 @@ class categorical_handler:
         self.dataframe=dataframe
 
     def return_categorical_features(self):
+        """
+        This method will return the categorical features in the passed dataset.
+        :return:
+        """
         try:
             df=self.dataframe
             cat=(df.dtypes=='object')
@@ -18,6 +22,9 @@ class categorical_handler:
             raise Exception("Error occured while returning the categorical features from the dataset{1}".format(str(e)))
 
     def remove_Categorical(self):
+        """
+        This method will remove the categorical features from the dataset passed in argument
+        """
         try:
             cat_features = self.return_categorical_features()
             df=self.dataframe
@@ -28,6 +35,10 @@ class categorical_handler:
             raise Exception(remove_categorical_exception+"More details={0}".format(str(e)))
 
     def ordinal_Encoding(self):
+        """
+        This method will encode the categorical values with their frequency of occurances in the column.
+        """
+
         try:
             cat_features = self.return_categorical_features()
             cat_features_ordinal=[]
@@ -47,7 +58,10 @@ class categorical_handler:
         except Exception as e:
             raise Exception("Error occured while performing ordinal encoding for the categorical dataset{0}".format(str(e)))
 
-    def one_Hot_Encoding(self,):
+    def one_Hot_Encoding(self):
+        """
+        This method will return the one hot encoded features with n-1 features. Where n is total number of features in the passed dataset
+        """
         try:
             cat_features=self.return_categorical_features()
             df=self.dataframe
@@ -58,6 +72,32 @@ class categorical_handler:
             return updated_df
         except Exception as e:
             raise Exception("Error occured while  performing one hot encoding{0}".format(str(e)))
+
+
+    def mean_Encoding_with_Target_Column(self,categorical_features,label):
+        try:
+            """
+                This method will encode the categorical feature into numerical by considering it's mean with respect to label
+                column entered.
+                ********************************************************************
+                categorical_features= List of categorical features in your dataset
+                label=The label column or the target column of your dataset
+                ********************************************************************
+                example-
+                categorical_features=['column_name1','column_name2']
+                label=result
+            """
+            categorical_features=categorical_features
+            target_column=label
+            df=self.dataframe
+            for i in range(len(categorical_features)):
+                encoded_mean_dict=df.groupby([categorical_features[i]]).mean()[target_column].to_dict()
+                df[categorical_features[i]+"_mean_encoded"]=df[categorical_features[i]].map(encoded_mean_dict)
+                df=df.drop(columns=categorical_features[i])
+            return df
+        except Exception as e:
+            raise Exception("Error occured while performing mean encoding with respect to target column{0}".format(str(e)))
+
 
 
 
