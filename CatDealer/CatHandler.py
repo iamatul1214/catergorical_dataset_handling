@@ -1,7 +1,4 @@
 import pandas as pd
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score, max_error
 
 class categorical_handler:
     def __init__(self,dataframe):
@@ -97,9 +94,6 @@ class categorical_handler:
             return df
         except Exception as e:
             raise Exception("Error occured while performing mean encoding with respect to target column{0}".format(str(e)))
-
-
-
 
 
 
