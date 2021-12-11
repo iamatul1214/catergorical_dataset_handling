@@ -5,7 +5,7 @@ with open('README.md','r') as file:
 
 setup(
    name='CatDealer',
-   version='1.0.1',
+   version='1.0.2',
    description='A library which can deal with Categorical values in a dataframe',
    license="MIT",
    long_description=long_description,

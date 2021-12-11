@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: CatDealer
-Version: 1.0.1
+Version: 1.0.2
 Summary: A library which can deal with Categorical values in a dataframe
 Home-page: https://github.com/iamatul1214/catergorical_dataset_handling
 Author: Atul Rai
