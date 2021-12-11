@@ -1,1 +1,1 @@
-from CatHandler import categorical_handler
+from CatDealer.CatHandler import categorical_handler

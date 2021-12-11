@@ -1,0 +1,9 @@
+LICENSE
+README.md
+setup.py
+CatDealer/CatHandler.py
+CatDealer/__init__.py
+CatDealer.egg-info/PKG-INFO
+CatDealer.egg-info/SOURCES.txt
+CatDealer.egg-info/dependency_links.txt
+CatDealer.egg-info/top_level.txt
