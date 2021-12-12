@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Categorical_dataset_modeling.iml" filepath="$PROJECT_DIR$/.idea/Categorical_dataset_modeling.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CatDealer.iml" filepath="$PROJECT_DIR$/.idea/CatDealer.iml" />
     </modules>
   </component>
 </project>
